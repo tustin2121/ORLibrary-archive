@@ -1,0 +1,177 @@
+!%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!%!  2004.02.27 OR_BlankGame.inf [Z, GLULX]
+!%! This is a template for a blank game which utilizes the ORLibrary
+!%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+!---DELETE THIS LINE UP BEFORE COMPILING
+!% !The following are Inform Compiler Switches.
+!% +include_path=\Inform\library,\inform\ORLibrary	!--these paths will differ from machine to machine
+!% +language_name=OREnglish							!--use the OREnglish LDF (not required, but a good idea)
+!% -v5												!--version to compile to: v5, v8, G, etc...
+!% -E1												!--Microsoft Style Error Msgs, needed so VisualStudio and IFIDE can jump to error
+!% -s												!--give statistics
+!% -X												!--infix (don't leave in final release; not available in glulx)
+!% -D												!--debug (don't leave in final release)
+!% -r												!--print story contents so they can be run through a spellchecker
+!% +transcript_name=gametext.txt					!--transcript file
+!% $MAX_SOURCE_FILES=512							!--ORLib pushes default compiler constraints.  Let's redefine these to give us some elbow room...
+!% $MAX_INCLUSION_DEPTH=10
+!% $MAX_LABELS=50000	
+!% $MAX_INDIV_PROP_TABLE_SIZE=50000					
+!% $MAX_STATIC_DATA=20000
+!---------------------------------------------------------------------------------------------------
+! <GAME NAME>
+!---------------------------------------------------------------------------------------------------
+! Created by <AUTHOR NAME>
+! Template by Jim Fisher 
+!---------------------------------------------------------------------------------------------------
+! License:
+! Consider using a general purpose license from the Create Commons website:
+!		http://creativecommons.org
+!---------------------------------------------------------------------------------------------------
+! 20XX.XX.XX	XXXX	Initial revision
+!---------------------------------------------------------------------------------------------------
+	!-- Serial "000000";
+	!-- Release 0;
+	!-- Constant ORBannerText "Additional banner text goes here";
+!---------------------------------------------------------------------------------------------------
+! General setup 
+!---------------------------------------------------------------------------------------------------
+	Constant Story				"<GAME NAME>";
+	Constant Headline			"^Copyright (c) 20__: <AUTHOR NAME>^";
+!---------------------------------------------------------------------------------------------------
+! Specify which ORModule extensions to use...
+!---------------------------------------------------------------------------------------------------
+! Constant USE_ORActionMenu;
+! Constant USE_ORAdjective;
+! Constant USE_ORBanner;
+! Constant USE_ORBetterChoice;
+! Constant USE_ORBracketParserMsgs;
+! Constant USE_ORCantGoOdd;
+! Constant USE_ORCenter;
+! Constant USE_ORConverseMenu;
+! Constant USE_ORDispensor;
+! Constant USE_ORDistinctMeSelf;
+! Constant USE_ORDistinctRead;
+! Constant USE_ORDoor;
+! Constant USE_ORDynaMap;
+! Constant USE_ORDynaString;
+! Constant USE_OREntryPoints;
+! Constant USE_ORExamWithContents;
+! Constant USE_ORExits;
+! Constant USE_ORFirstThoughts;
+! Constant USE_ORGibberish;
+! Constant USE_ORInfGlk;
+! Constant USE_ORInformLibrary;
+! Constant USE_ORInsultCompli_KT;
+! Constant USE_ORJustEnoughGlulx;
+! Constant USE_ORKeyboard;
+! Constant USE_ORKeyboardPrimitive; 
+! Constant USE_ORKnowledgeScript; 
+! Constant USE_ORKnowledgeTopic; 
+! Constant USE_ORKnowledgeWeb; 
+! Constant USE_ORLiquid; 
+! Constant USE_ORLookRoom;
+! Constant USE_ORMagic; 
+! Constant USE_ORMenu; 
+! Constant USE_ORMiniMenu;
+! Constant USE_ORNameable;
+! Constant USE_ORNPC;
+! Constant USE_ORNPC_AskTellLearn; 
+! Constant USE_ORNPC_Converse; 
+! Constant USE_ORNPC_DoVerb; 
+! Constant USE_ORNPC_GoalDriven;
+! Constant USE_ORNPC_Interact;
+! Constant USE_ORNPC_MapKnown;
+! Constant USE_ORNPC_Moods; 
+! Constant USE_ORNPC_Movement;
+! Constant USE_ORNPCVerb; 
+! Constant USE_ORNumberedContainer; 
+! Constant USE_OROptionList; 
+! Constant USE_OROptionListMenu;
+! Constant USE_ORParser; 
+! Constant USE_ORParseToken;
+! Constant USE_ORPathMaker;
+! Constant USE_ORPrefixSuffix;
+! Constant USE_ORPronoun;
+! Constant USE_ORProp;
+! Constant USE_ORRecogName;
+! Constant USE_ORRedefineObject;
+! Constant USE_ORReferByContents;
+! Constant USE_ORReverseDirection;
+! Constant USE_ORReview;
+! Constant USE_ORRockDispensor;
+! Constant USE_ORRoutinesList;
+! Constant USE_ORSeveral; 
+! Constant USE_ORSpecializedExit;
+! Constant USE_ORStyleHint; 
+! Constant USE_ORSupporterContainer;
+! Constant USE_ORSuppressTakeAll;
+! Constant USE_ORTextFormatting;
+! Constant USE_ORTransition;
+! Constant USE_ORUniqueMultiMessage;
+! Constant USE_ORWAE_Formatting;
+! Constant USE_ORWriteAfterEntry;
+! Constant USE_PersonalReuse;				!--A user-defined module (reuse.h), for reusable code.
+!---------------------------------------------------------------------------------------------------
+! Replace Directives 
+!---------------------------------------------------------------------------------------------------
+!	[DeathMessage; print "Game Over";]; 
+!---------------------------------------------------------------------------------------------------
+! Attributes 
+!---------------------------------------------------------------------------------------------------
+ 
+!---------------------------------------------------------------------------------------------------
+#Include "OR_Library_Include"; #Include "Parser";
+!---------------------------------------------------------------------------------------------------
+! SackObject, LibraryMessages Object, tasks...
+!---------------------------------------------------------------------------------------------------
+!	default MAX_SCORE			100;
+!	default NUMBER_TASKS		4;
+!	default OBJECT_SCORE		5;
+!	#ifndef task_scores; 
+!		Array	task_scores	->	25 25 25 25; 
+!	#endif;
+!---------------------------------------------------------------------------------------------------
+#Include "OR_Library_Include"; #Include "VerbLib"; #Include "OR_Library_Include"; 
+!---------------------------------------------------------------------------------------------------
+! Variables 
+!---------------------------------------------------------------------------------------------------
+ 
+!---------------------------------------------------------------------------------------------------
+! Object Templates (class declarations) 
+!---------------------------------------------------------------------------------------------------
+
+!---------------------------------------------------------------------------------------------------
+! Maps 
+!---------------------------------------------------------------------------------------------------
+
+!---------------------------------------------------------------------------------------------------
+! NPCs 
+!---------------------------------------------------------------------------------------------------
+
+!---------------------------------------------------------------------------------------------------
+! Movable Objects 
+!---------------------------------------------------------------------------------------------------
+
+!---------------------------------------------------------------------------------------------------
+! Non-physical objects (i.e. Menus, KnowledgeTopics, spells, etc)  
+!---------------------------------------------------------------------------------------------------
+
+!---------------------------------------------------------------------------------------------------
+! Code 
+!---------------------------------------------------------------------------------------------------
+	[Initialise;
+		return; !--return 2 disables the game banner
+	]; 
+!---------------------------------------------------------------------------------------------------
+! Grammer 
+!---------------------------------------------------------------------------------------------------
+#Include "Grammar"; #Include "OR_Library_Include"; 
+!---------------------------------------------------------------------------------------------------
+
+!---------------------------------------------------------------------------------------------------
+end;
+!===================================================================================================
+Free form text and notes can go here 
+
